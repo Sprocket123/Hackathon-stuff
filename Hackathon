@@ -1,0 +1,95 @@
+print ("hello world")
+print("Welcome to the world of finance, where literacy ")
+
+import openai
+
+!pip install openai==0.28
+
+OPENAI_API_KEY='key5'
+
+openai.api_key='key'
+
+
+#User Input
+initial_prompt ='You are a decision-based game, playing the role of a finacial advisor. Your responses should be brief, concise, and straightforward. You must always ask for user input before proceeding.'
+
+# Define a function to interact with the OpenAI API
+def ask_openai(prompt):
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  # Use the correct model name
+        messages=[
+            {"role": "system", "content": prompt},
+        ],
+        temperature=0.5,
+        max_tokens=100
+    )
+    return response.choices[0].message["content"]
+
+# Start the conversation with the initial prompt
+response = ask_openai(initial_prompt)
+print("Advisor:", response)  # Display the AI's response
+
+print('Do you want to know about making a Checking Account (1) , or Savings Account (2)?')
+
+# Handle user's choice
+user_choice = input("Your choice: ")
+if user_choice == "1":
+    # Handle choice 1
+    print('With a checking account, you readily have access to the money you own with an ongoing basis and little to no restrictions. These are typically one’s main account they hold their money with. What else would you like to know?')
+elif user_choice == "2":
+    # Handle choice 2
+    print('With a savings account, you have potential for high yield interest, which adds money to your account based on the amount you retain, a withdrawal limit, and larger spending limits. This money is still yours, it just requires more financial oversight. What else would you like to know?')
+else:
+    print("Invalid choice. Please choose again.")
+
+print('If you want a savings account with no fees and low interest which bank would you like to look into? Goldman Sachs(3), or Capital One 360 (4)?')
+
+# Handle user's choice
+user_choice = input("Your choice: ")
+if user_choice == "3":
+    # Handle choice 3
+    print('One consideration would be investing in a Marcus by Goldman Sachs Account. Marcus by Goldman Sachs boasts not only just no fees or minimum deposit required, but same day transfers of up to $100,000, an interest rate of 4.50% and a 24/7 contact centre.')
+elif user_choice == "4":
+    # Handle choice 4
+    print('One such consideration would be opening a Capital One 360 Performance Savings account. Capital One 360 boasts a high percentage interest rate of 4.35%, no fees, no monthly minimum, and in person chain banking.')
+else:
+    print("Invalid choice. Please choose again.")
+
+print('How would you like to minimize the long term impact of student loans on your financial future? Paying back loans in school(5) or Explore Repayment Plans(6)?')
+# Handle user's choice
+user_choice = input("Your choice: ")
+if user_choice == "5":
+    # Handle choice 5
+    print('You can start by paying back loans while you’re in school. The earlier you start paying off the loan, the less detriment it’ll have on your, especially if it’s a Direct Subsidised Loan as it only accrues interest post-graduation. This could be supplemented by an automatic pay system.')
+elif user_choice == "6":
+    # Handle choice 6
+    print('You can explore alternative repayment plans. If payments are hard to meet or you have no plan of full reimbursement, consider establishing an income contingent repayment plan after college, which pays your loan based on no more than 20% of your income over 25 years. Alternatively you can establish a pay as you earn account that functions similarly at only 10% of your income for 20 years.')
+else:
+    print("Invalid choice. Please choose again.")
+
+print('Shall we wage are the financial implications of owning a car vs leasing or purchasing one? Own Car(7) or Lease Car(8)')
+# Handle user's choice
+user_choice = input("Your choice: ")
+if user_choice == "7":
+    # Handle choice 7
+    print('Owning a car adds an asset to your financial car as you own another property that is monetarily linked. This option is usually favourable if you plan to own a vehicle for a long time as you maintain equity and can pay down the loan overtime.')
+elif user_choice == "8":
+    # Handle choice 8
+    print(' A leased car has lower monthly payments and allows you to use a vehicle before you’re fully financially ready for ownership. This is ideal for short term vehicle ownership as the repair costs will also be lessened compared to ownership.')
+else:
+    print("Invalid choice. Please choose again.")
+
+print('Would you rather have a fixed rate(9) or adjustable rate mortgage?(10)')
+# Handle user's choice
+user_choice = input("Your choice: ")
+if user_choice == "9":
+    # Handle choice 9
+    print('With fixed rate interest, the interest rate is predetermined and established, without being subject to change. These are typically harder to get as they require better credit scores. This is typically better for long term home ownership.')
+elif user_choice == "10":
+    # Handle choice 10
+    print('Possessing an adjustable rate mortgage enables an interest rate subject to fluctuation however, it is easier to qualify for than fixed rate. This is better for short term home ownership.')
+else:
+    print("Invalid choice. Please choose again.")
+
+print('Thanks For Playing!')
+
